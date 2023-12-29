@@ -18,6 +18,11 @@ public class LoanAccount extends Product {
 		this.checkDeposit = checkDeposit;
 	}
 
+	@Override
+	public String toString() {
+		return "LoanAccount [checkDeposit=" + checkDeposit + "]";
+	}
+
 	
 
 }

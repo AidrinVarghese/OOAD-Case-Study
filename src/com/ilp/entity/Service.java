@@ -26,7 +26,7 @@ public class Service {
 	public double getRate() {
 		return rate;
 	}
-	public void setRate(float rate) {
+	public void setRate(double rate) {
 		this.rate = rate;
 	}
 	@Override

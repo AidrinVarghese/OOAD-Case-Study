@@ -18,6 +18,11 @@ public class SavingsMaxAccount extends Product {
 		this.minBalance = minBalance;
 	}
 
+	@Override
+	public String toString() {
+		return "SavingsMaxAccount [minBalance=" + minBalance + "]";
+	}
+
 	
 
 }

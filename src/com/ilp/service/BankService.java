@@ -18,27 +18,27 @@ public class BankService {
 
         char serviceChoice = 0;
         do {
-        	 System.out.println(" ENTER SERVICE CODE: ");
+        	 System.out.println("ENTER SERVICE CODE: ");
              String serviceCode = scanner.nextLine();             
              if (isServiceCodeExists(serviceList, serviceCode)) {
                  System.out.println("\n SERVICE WITH THIS CODE ALREADY EXISTS.\n"
                  		+ "PLEASE ENTER A UNIQUE CODE! \n");
                  continue;
              }     
-             System.out.println("\n ENTER SERVICE NAME: \n");
+             System.out.println("ENTER SERVICE NAME:");
              String serviceName = scanner.nextLine();
              if (isServiceNameExists(serviceList, serviceName)) {
                  System.out.println("SERVICE WITH THIS NAME ALREADY EXISTS. PLEASE ENTER A UNIQUE NAME");
                  continue;
              }
-             System.out.println("\n ENTER THE RATE: \n");
+             System.out.println("ENTER THE RATE:");
              double rate = scanner.nextDouble();
              scanner.nextLine();
              
              Service service = new Service(serviceCode, serviceName, rate);
              
              serviceList.add(service);
-             System.out.println("\n CREATE MORE SERVICES ? (Y/N) \n");
+             System.out.println("CREATE MORE SERVICES ? (Y/N)");
              serviceChoice = scanner.next().charAt(0);
              scanner.nextLine();     	
         }
@@ -63,11 +63,5 @@ public class BankService {
         return false;
     }
     
-    public static void displayServices(ArrayList<Service> serviceList) {
-    	
-		System.out.println("\t\t**SERVICE CODE:**\t\t**SERVICE NAME:**\t\t**RATE OF SERVICE:**");
-		for(Service service:serviceList) {
-			System.out.println("\t\t"+service.getServiceCode()+"\t\t"+service.getServiceName()+"\t\t"+service.getRate());
-		}	
-	}
+    
 }

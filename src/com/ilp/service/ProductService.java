@@ -20,10 +20,10 @@ public static void createProduct(ArrayList<Service> serviceList,ArrayList<Produc
 				+ "PR003 - LOAN ACCOUNT");		
 	
 			ArrayList<Service> temporaryServiceList = new ArrayList<Service>(); 
-			System.out.println("\n ENTER PRODUCT NAME:");
-			String productName = scanner.nextLine();
-			System.out.println("\n ENTER PRODUCT CODE:");
-			String productCode = scanner.nextLine();			
+			System.out.println("\nENTER PRODUCT CODE:");
+			String productCode = scanner.nextLine();
+			System.out.println("\nENTER PRODUCT NAME:");
+			String productName = scanner.nextLine();						
 			linkServices(serviceList,temporaryServiceList);
 				
 			switch(productCode)
@@ -48,7 +48,7 @@ public static void createProduct(ArrayList<Service> serviceList,ArrayList<Produc
 			}
 }
 			public static void linkServices(ArrayList<Service> mainServiceList, ArrayList<Service> serviceList) {
-		        String menuChoice = "Y";
+		        char menuChoice;
 		        String serviceChoice;
 		        Service currentService = null;
 		        ArrayList<Service> localMainServiceList = (ArrayList<Service>) mainServiceList.clone();
@@ -57,7 +57,7 @@ public static void createProduct(ArrayList<Service> serviceList,ArrayList<Produc
 		            for (Service service : localMainServiceList) {
 		                System.out.println(service.toString());
 		            }
-		            System.out.println("Enter the service Code To Link To the Product:");
+		            System.out.println("\nENTER THE SERVICE CODE TO LINK TO THE PRODUCT:");
 		            serviceChoice = scanner.nextLine();
 		 
 		            for (Service service : localMainServiceList) {
@@ -71,8 +71,8 @@ public static void createProduct(ArrayList<Service> serviceList,ArrayList<Produc
 		                localMainServiceList.remove(currentService);
 		            if(localMainServiceList.isEmpty())
 		            	return;
-		            System.out.println("Enter Y to continue linking services");
-		            menuChoice = scanner.nextLine();
-		        } while (menuChoice.equals("Y"));
+		            System.out.println("CONTINUE LINKING SERVICES (Y/N):");
+		            menuChoice = scanner.next().charAt(0);
+		        } while (menuChoice =='y' || menuChoice == 'Y');
 		    }	
 }

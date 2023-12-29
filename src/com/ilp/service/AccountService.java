@@ -12,21 +12,24 @@ public class AccountService {
         Scanner scanner = new Scanner(System.in);
         double balanceAmount;
         int i = 0;
-
-        System.out.println("******LIST OF AVAILABLE PRODUCTS*******");
+        
+        System.out.println("*------------------------------------------------*");
+        System.out.println("************LIST OF AVAILABLE PRODUCTS************");
+        System.out.println("*------------------------------------------------*");
         for (Product product : productList) {
             System.out.println(i + ". " + product.getProductName());
             System.out.println();
             i++;
         }
-
-        System.out.println("SELECT A PRODUCT NUMBER FROM THE LIST:");
+        System.out.println("*------------------------------------------------*");
+        System.out.println("*******SELECT A PRODUCT NUMBER FROM THE LIST******");
+        System.out.println("*------------------------------------------------*");
         int productChoice = scanner.nextInt();
         scanner.nextLine();
 
 
         if (productChoice < 0 || productChoice >= productList.size()) {
-            System.out.println("Invalid product choice.");
+            System.out.println("\t \tINVALID PRODUCT CHOICE!");
             return null; 
         }
 
@@ -34,17 +37,17 @@ public class AccountService {
         Product selectedProduct = productList.remove(productChoice);
         String productName = selectedProduct.getProductName();
 
-        System.out.print("\n ENTER ACCOUNT NUMBER: ");
+        System.out.print("\n \tENTER ACCOUNT NUMBER: ");
         String accountNo = scanner.nextLine();
-        System.out.println("\n CREDIT CASH TO YOUR ACCOUNT:");
+        System.out.println("\n \tCREDIT CASH TO YOUR ACCOUNT:");
         balanceAmount = scanner.nextDouble();
 
         if (selectedProduct instanceof SavingsMaxAccount) {
             SavingsMaxAccount savingsMaxAccount = (SavingsMaxAccount) selectedProduct;
             while (balanceAmount < savingsMaxAccount.getMinBalance()) {
-                System.out.println("\t INSUFFICIENT ACCOUNT BALANCE! \n\t MINIMUM BALANCE MUST NOT GO BELOW:"
+                System.out.println("\tINSUFFICIENT ACCOUNT BALANCE! \n\t MINIMUM BALANCE MUST NOT GO BELOW:"
                         + savingsMaxAccount.getMinBalance());
-                System.out.println("RE-ENTER CREDIT CASH:");
+                System.out.println("\tRE-ENTER CREDIT CASH:");
                 balanceAmount = scanner.nextDouble();
             }
         }

@@ -68,8 +68,15 @@ public class MainUtility {
 				if(customer == null)
 				{
 					account = AccountService.createAccount(productList);
-					customer = CustomerService.createCustomer(account);
+					if(account!=null) {
+						customer = CustomerService.createCustomer(account);
+					}	
+					else {
+						System.out.println("CREATE AN ACCOUNT FIRST!");
+						break;
+					}
 				}
+					
 				else
 				{
 					account = AccountService.createAccount(productList);
@@ -102,7 +109,7 @@ public class MainUtility {
 				System.out.println("INVALID CHOICE, PLEASE CHOOSE CORRECT OPTION");
 				
 			}
-			System.out.println("WELCOME TO BANK MAIN MENU: \n WOULD YOU LIKE TO CONTINUE ?");
+			System.out.println("\n\nWELCOME TO BANK MAIN MENU: \n\nWOULD YOU LIKE TO CONTINUE ?");
 			mainChoice=scanner.next().charAt(0);
 			
 		}while( mainChoice == 'y' || mainChoice == 'Y'); 
